@@ -68,7 +68,9 @@ class Student extends Person {
         this.favSubjects = learn.favSubjects
     }
     listsSubjects() {
-        return `${this.favSubjects}`;
+        this.favSubjects.forEach(function(subject) {
+            return console.log(subject);
+        })
     }
     PRAssignment(subject) {
         return `${this.name} has submitted a PR for ${subject}.`;
@@ -85,7 +87,7 @@ const student1 = new Student ({
     location: 'San Franisco',
     previousBackground: 'carpentry',
     className: 'WEB25',
-    favSubjects: 'Prototypes, for Loops, & if Statements'
+    favSubjects: ['Prototypes', 'for Loops', 'if Statements']
 });
 
 const student2 = new Student ({
@@ -94,7 +96,7 @@ const student2 = new Student ({
     location: 'Huntington Beach',
     previousBackground: 'journeyman',
     className: 'WEB25',
-    favSubjects: 'this keyword'
+    favSubjects: ['this keyword', 'higher order function', 'array']
 });
 
 const student3 = new Student ({
@@ -103,11 +105,13 @@ const student3 = new Student ({
     location: 'Baton Rouge',
     previousBackground: 'Cost Manager',
     className: 'WEB25',
-    favSubjects: 'Javascript'
+    favSubjects: ['Javascript', 'HTML', 'CSS']
 });
 
 
-console.log(student1.listsSubjects());
+student1.listsSubjects();
+student2.listsSubjects();
+student3.listsSubjects();
 console.log(student2.PRAssignment('Arrays project'));
 console.log(student3.sprintChallenge('React'));
 
